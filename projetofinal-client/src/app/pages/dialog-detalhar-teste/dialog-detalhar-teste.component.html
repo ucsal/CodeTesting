@@ -1,0 +1,51 @@
+
+<div [class]="divResult">
+  <mat-icon    class="iconResumo accepted" *ngIf="result.resultadoFinal">check_circle_outline</mat-icon>
+  <mat-icon   class="iconResumo wrong" *ngIf="!result.resultadoFinal && !result.runtimeException">highlight_off</mat-icon>
+  <mat-icon   class="iconResumo exception" *ngIf="result.runtimeException">error_outline</mat-icon>
+  <h2 mat-dialog-title [class]="h2Result">{{result.nome}}</h2>
+
+  <!-- <h2 mat-dialog-title class="errado" *ngIf="!result.resultadoFinal" >
+    {{result.nome}}
+  </h2> -->
+</div>
+
+<mat-dialog-content class="mat-typography">
+  <div class="resultado">
+    <div>
+      <label>Quando digitamos a entrada:</label>
+      <div class="div-resultado">{{result.entrada}}</div>
+    </div>
+
+    <div *ngIf="!result.resultadoFinal; else correct">
+      <div>
+        <label>A saída deveria ser:</label>
+        <div class="div-resultado">{{result.saidaEsperada}}</div>
+      </div>
+
+      <div>
+        <label *ngIf="!result.runtimeException">Porém, seu programa imprimiu:</label>
+        <label *ngIf="result.runtimeException">Porém, seu programa gerou uma exceção:</label>
+        <div class="div-resultado">{{result.saidaObtida}}</div>
+      </div>
+
+      <div *ngIf="result.exceptionSimplificada ">
+        <label>Isso pode significar:</label>
+        <div *ngIf="result.exceptionSimplificada "class="div-resultado">{{result.exceptionSimplificada}}</div>
+      </div>
+
+    </div>
+
+    <ng-template #correct>
+      <div>
+        <label>Seu programa imprime a saída corretamente:</label>
+        <div class="div-resultado">{{result.saidaObtida}}</div>
+      </div>
+    </ng-template>
+  </div>
+  <div class="resultado">
+    <button mat-stroked-button  type="button" (click)="fechar()" class="btn-dialog">Fechar</button>
+  </div>
+</mat-dialog-content>
+
+

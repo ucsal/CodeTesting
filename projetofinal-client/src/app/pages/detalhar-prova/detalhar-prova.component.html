@@ -1,0 +1,14 @@
+<div class="container ">
+  <h1 class="center">{{prova.nome}}</h1>
+  <h3 class="center">{{prova.dataFinal | date: 'dd/MM/yy HH:mm'}}</h3>
+</div>
+
+<div class="container">
+  <mat-nav-list>
+    <mat-divider></mat-divider>
+    <div *ngFor="let item of itens">
+      <a mat-list-item (click)="responder(item)"> {{ item.tarefa.titulo }} </a>
+    <mat-divider></mat-divider>
+    </div>
+  </mat-nav-list>
+</div>

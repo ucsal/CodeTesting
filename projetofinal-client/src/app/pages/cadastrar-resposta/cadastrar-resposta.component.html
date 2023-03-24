@@ -1,0 +1,35 @@
+<div class="container-fluid">
+  <div class="container">
+
+    <h2 class="center" *ngIf="item != null">{{item.prova.nome}}</h2>
+    <h3 class="titulo center">{{tarefa.titulo}}</h3>
+    <!-- <h4 class="center">{{tarefa.usuario.nome}}</h4> -->
+
+    <p class="descricaoTarefa">{{tarefa.descricao}}</p>
+
+    <table mat-table [dataSource]="casosTeste" >
+
+      <ng-container matColumnDef="entrada">
+        <th mat-header-cell *matHeaderCellDef>Exemplo de Entrada</th>
+        <td mat-cell *matCellDef="let teste" class="teste">{{teste.entrada}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="saida">
+        <th mat-header-cell *matHeaderCellDef>Exemplo de Saida</th>
+        <td mat-cell *matCellDef="let teste" class="teste"><label>{{teste.saida}}</label></td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <div class="botao-wrapper center">
+      <button mat-stroked-button *ngIf="item == null" (click)="voltar()">Voltar</button>
+      <button mat-stroked-button *ngIf="item != null" (click)="voltarProva(item.prova)">Voltar Para Prova</button>
+      <button mat-button class="botao" id="btn" type="button" (click)="openDialogResposta()" color="primary">Submeter Resposta</button>
+    </div>
+
+
+  </div>
+</div>
+

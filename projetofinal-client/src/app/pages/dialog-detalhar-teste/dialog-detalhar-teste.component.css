@@ -1,0 +1,88 @@
+.resultado{
+  padding: 10px 10px 5px 10px;
+}
+
+.div-resultado{
+  margin: 0 0 10px;
+  padding: 5px;
+  border: 1px solid currentColor;
+  border-color: rgba(0,0,0,.12);
+  border-radius: 4px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow: auto;
+  max-height: 200px;
+  min-height: 21px
+}
+
+.btn-dialog{
+  margin: 5px 0;
+  width: 100%;
+}
+
+.div-titulo-certo{
+  margin: 5px 0;
+  display: flex;
+  align-items: center;
+  text-transform: capitalize;
+  background-color: rgba(52, 190, 47, 0.12);
+  justify-content: flex-start;
+  border: 2px solid currentColor;
+  border-color: rgb(52, 190, 47);
+  border-radius: 6px;
+}
+
+.div-titulo-errado{
+  margin: 5px 0;
+  display: flex;
+  align-items: center;
+  text-transform: capitalize;
+  background-color: rgba(5244, 67, 54, 0.12);
+  justify-content: flex-start;
+  border: 2px solid currentColor;
+  border-color: rgb(244, 67, 54);
+  border-radius: 6px;
+}
+
+.div-titulo-exception{
+  margin: 5px 0;
+  display: flex;
+  align-items: center;
+  text-transform: capitalize;
+  background-color: rgba(255, 205, 21, 0.12);
+  justify-content: flex-start;
+  border: 2px solid currentColor;
+  border-color: rgb(255, 205, 21);
+  border-radius: 6px;
+}
+
+.certo{
+  margin: 5px 5px;
+  color:#34be2f ;
+
+}
+
+.errado{
+  margin: 5px 5px;
+  color:#f44336 ;
+}
+
+.excecao{
+  margin: 5px 5px;
+  color:rgb(255, 205, 21) ;
+}
+
+.accepted{
+  margin: 0px 5px;
+  color: #36b80f;
+}
+
+.wrong{
+  margin: 0px 5px;
+  color:#f44336;
+}
+
+.exception{
+  margin: 0px 5px;
+  color: rgb(255, 205, 21) ;
+}

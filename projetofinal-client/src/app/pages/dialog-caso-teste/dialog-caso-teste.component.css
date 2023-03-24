@@ -1,0 +1,23 @@
+.formulario {
+  width: 100%;
+}
+
+.input-form{
+  width: 100%;
+}
+
+.mat-form-field{
+  width: 100%
+}
+
+.divButtons{
+  text-align: justify;
+  display: inline-block;
+}
+
+
+button{
+  margin: 15px 25px 25px;
+}
+
+

@@ -1,0 +1,56 @@
+.cardLogin {
+  width: 100%;
+}
+
+.containerLogin {
+  max-width: 600px;
+  padding: 30px;
+  margin: 0 auto;
+  min-height: 75%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mat-form-field{
+  width: 100%;
+}
+
+.input-login {
+  width: 100%;
+  padding: 5px 0px;
+}
+
+.input-form {
+  width: 100%;
+}
+
+/* .icon {
+  padding: 0px 13px 0px 0px;
+  color: #00708d;
+} */
+
+input.mat-input-element {
+  margin-top: 0.1125em;
+}
+
+.bot-login {
+  width: 100%;
+  background-color:  #3f51b5;
+  color: #dedede;
+  margin-bottom: 15px;
+}
+
+.bot-login:hover{
+  background-color:  #dedede;
+  color: #3f51b5;
+}
+
+.bot-cadastrar {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.container-fluid {
+  height: 100%;
+}

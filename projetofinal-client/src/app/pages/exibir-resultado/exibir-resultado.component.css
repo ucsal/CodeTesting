@@ -1,0 +1,88 @@
+.porcentagemResultado{
+  margin: 25px 0px;
+}
+
+.porcentagem{
+  font-size: 25px;
+  margin: 10px auto;
+}
+
+.accepted{
+  color: #36b80f;
+}
+
+.exception{
+  color: rgb(255, 205, 21);
+}
+mat-card{
+  margin: 25px 0;
+}
+label{
+  /* margin: 10px 2px; */
+  cursor: pointer;
+}
+
+.card-resultado{
+  display: flex;
+  /* flex-direction: row;
+  flex-wrap: wrap; */
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+.div-resultado{
+  border: 1px solid currentColor;
+  border-color: rgba(0,0,0,.12);
+  border-radius: 4px;
+  cursor: pointer;
+  width: 47%;
+  height: 45px;
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.label-result{
+  margin: 0px 5px;
+  text-transform: capitalize;
+}
+
+.app-ace-editor {
+  min-height: 400px;
+  width:100%;
+  height: 100%;
+  overflow: auto;
+  border: 2px solid #f8f9fa;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  margin-bottom: 25px;
+}
+
+.iconResultado{
+  font-size: 35px;
+}
+
+.iconResultado2{
+  margin: 0px 5px;
+}
+
+.iconResumo{
+  margin: 10px 2px;
+}
+
+.lista-resultado{
+  overflow: hidden;
+  white-space: pre-wrap;
+
+  word-wrap: break-word;
+}
+
+button{
+  margin: 20px 10px;
+}
+/* p{
+  white-space: pre-wrap;
+  width: 20em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+} */

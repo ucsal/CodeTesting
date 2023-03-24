@@ -1,0 +1,32 @@
+.input-form {
+  width: 100%;
+}
+
+.formulario {
+  width: 100%;
+}
+
+.mat-form-field{
+  width: 100%;
+}
+
+table{
+  width: 100%;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+td{
+  max-width: 300px;
+  vertical-align: top;
+
+}
+.mat-column-saida, .mat-column-entrada, .mat-column-comparacao{
+  padding: 5px;
+}
+
+button{
+  margin: 15px 5px 5px;
+}

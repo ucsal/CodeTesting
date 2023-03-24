@@ -1,0 +1,36 @@
+<table mat-table [dataSource]="resultados" class="mat-elevation-z8">
+
+  <ng-container matColumnDef="saidaObtida">
+    <th mat-header-cell *matHeaderCellDef> Saida Obtida </th>
+    <td mat-cell *matCellDef="let resultado"> {{resultado.saidaObtida}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="resultado">
+    <th mat-header-cell *matHeaderCellDef> Resultado </th>
+    <td mat-cell *matCellDef="let resultado"> {{resultado.resultado}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="resposta">
+    <th mat-header-cell *matHeaderCellDef> Resposta </th>
+    <td mat-cell *matCellDef="let resultado"> {{resultado.resposta.codigo}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="casoTesteEntrada">
+    <th mat-header-cell *matHeaderCellDef> Entrada Testada </th>
+    <td mat-cell *matCellDef="let resultado"> {{resultado.casoTeste.entrada}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="casoTesteSaida">
+    <th mat-header-cell *matHeaderCellDef> Saida Esperada </th>
+    <td mat-cell *matCellDef="let resultado"> {{resultado.casoTeste.saida}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+<div class="no-results" *ngIf="resultados ? resultados.data.length === 0 : true">
+  Nenhuma submissão cadastrada.
+</div>
+
+<mat-paginator #paginator [length]="10" [pageSize]="10"  [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>

@@ -1,0 +1,62 @@
+<div class="container-fluid">
+  <div class="container">
+  <form [formGroup]="formCadastrarUsuario" class="formulario" (ngSubmit)="cadastrarUsuario()">
+    <h2 class="titulo-form">Cadastrar Aluno</h2>
+
+    <p>
+    <mat-form-field class="example-full-width" appearance="outline" >
+      <mat-label>Nome</mat-label>
+      <input matInput   class="input-form" id="nome" type="text" [(ngModel)]="usuario.nome" name="nome" formControlName="nome" required/>
+      <mat-error >
+        Campo Obrigatório.
+      </mat-error>
+    </mat-form-field>
+    </p>
+
+    <p>
+    <mat-form-field class="example-full-width" appearance="outline" >
+      <mat-label>Login</mat-label>
+      <input matInput class="input-form" id="login" type="text" [(ngModel)]="usuario.login" name="login" formControlName="login" required/>
+      <mat-error *ngIf="!formCadastrarUsuario.controls['login'].hasError('pattern')">
+        Informe um login com pelo menos 4 caracteres.
+      </mat-error>
+      <mat-error *ngIf="formCadastrarUsuario.controls['login'].hasError('pattern')">
+        Informe um login com caracteres de A-Z.
+      </mat-error>
+    </mat-form-field>
+    </p>
+
+
+    <p>
+      <mat-form-field class="example-full-width" appearance="outline" >
+        <mat-label>E-mail</mat-label>
+        <input matInput class="input-form" id="email" type="email" [(ngModel)]="usuario.email" name="email" formControlName="email"/>
+        <mat-error *ngIf="formCadastrarUsuario.controls['email'].hasError('required')">
+          Campo Obrigatório.
+          </mat-error>
+          <mat-error *ngIf="formCadastrarUsuario.controls['email'].hasError('email')">
+            E-mail inválido.
+            </mat-error>
+      </mat-form-field>
+    </p>
+
+    <p>
+    <mat-form-field class="example-full-width" appearance="outline" >
+      <mat-label>Senha</mat-label>
+      <input matInput class="input-form" id="senha" [type]="hide ? 'password' : 'text'" [(ngModel)]="usuario.senha" name="senha" formControlName="senha" />
+      <mat-icon  matSuffix class="iconSenha" (click)="exibirSenha()">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      <mat-error>
+        Informe uma senha com pelo menos 6 caracteres.
+      </mat-error>
+    </mat-form-field>
+    </p>
+
+    <label class="msg-erro center" *ngIf="loginInvalido">Este login já está em uso. Tente Outro.</label>
+    <div class="botao-wrapper center">
+      <button  mat-stroked-button color="primary" class="bot-cadastrar" (click)="voltar()">Voltar</button>
+      <button mat-button class="botao" id="btn" type="submit">Cadastrar</button>
+    </div>
+
+  </form>
+  </div>
+</div>

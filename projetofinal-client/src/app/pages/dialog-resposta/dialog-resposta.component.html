@@ -1,0 +1,16 @@
+
+<form  class="formulario" (ngSubmit)="EnviarResposta()">
+
+  <div
+  class="app-ace-editor"
+  #editor>
+</div>
+
+</form>
+
+<div class="botao-wrapper center">
+  <button mat-stroked-button (click)="fechar()">Fechar</button>
+  <button mat-button class="botao" id="btn" color="primary" (click)="EnviarResposta()">Enviar</button>
+</div>
+
+

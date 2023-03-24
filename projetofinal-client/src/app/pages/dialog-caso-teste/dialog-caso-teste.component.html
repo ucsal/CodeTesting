@@ -1,0 +1,48 @@
+<form class="formulario" [formGroup]="formularioCasoTeste" (ngSubmit)="cadastrarCasoTeste()">
+<h1>Caso de Teste</h1>
+<p>
+  <mat-form-field class="example-full-width" appearance="outline" >
+    <mat-label>Titulo</mat-label>
+    <input matInput class="input-form" [(ngModel)]="teste.nomeTeste" [value]="teste.nomeTeste" id="nomeTeste" type="text"  name="nomeTeste" formControlName="nomeTeste"/>
+  </mat-form-field>
+</p>
+
+<p>
+  <mat-form-field class="example-full-width" appearance="outline" >
+    <mat-label>Entrada</mat-label>
+    <textarea matInput class="input-form" [(ngModel)]="teste.entrada" id="entrada" type="text"  name="entrada" formControlName="entrada"></textarea>
+  </mat-form-field>
+</p>
+
+<p>
+  <mat-form-field class="example-full-width" appearance="outline" >
+    <mat-label>Saída</mat-label>
+    <textarea matInput class="input-form" [(ngModel)]="teste.saida"  id="saida" type="text"  name="saida" formControlName="saida"></textarea>
+  </mat-form-field>
+</p>
+
+<p>
+  <mat-form-field class="example-full-width" appearance="outline" >
+    <mat-label>Comparação</mat-label>
+    <mat-select [(ngModel)]="teste.comparacao"  name="comparacao" formControlName="comparacao">
+      <mat-option *ngFor="let c of comparacoes" [value]="c.value">{{c.viewValue}}</mat-option>
+
+    </mat-select>
+  </mat-form-field>
+</p>
+
+<p>
+
+    <mat-slide-toggle color="primary" [(ngModel)]="teste.flagExibir"  name="flagExibir" formControlName="flagExibir">Exibir caso de teste para o aluno</mat-slide-toggle>
+
+</p>
+  <div class=" center">
+    <!-- <div class="col-6 center"> -->
+      <button mat-stroked-button  type="button" (click)="cancelar()">Cancelar</button>
+    <!-- </div> -->
+    <!-- <div class="col-6 center"> -->
+      <button mat-button type="button" (click)="cadastrarCasoTeste()" color="primary" id="btn">Salvar</button>
+
+    <!-- </div> -->
+  </div>
+</form>

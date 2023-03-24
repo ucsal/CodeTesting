@@ -1,0 +1,86 @@
+
+<div class="container">
+
+  <div class="porcentagemResultado">
+
+        <div class="center">
+          <h1 class="porcentagem">Você acertou {{resultado.porcentagem}}% dos casos de teste</h1>
+        </div>
+        <app-barra-progresso [certo]="porcentagem" [errado]="100-porcentagem"></app-barra-progresso>
+
+        <!-- <div class="center">
+          <div class="resumo" *ngFor="let result of resultado.testes" (click)="detalhar(result)">
+            <mat-icon *ngIf="result.resultadoFinal"   class="iconResumo accepted">check_circle_outline</mat-icon>
+            <mat-icon *ngIf="!result.resultadoFinal" class="iconResumo"  color = "warn" >error_outline</mat-icon>
+          </div>
+        </div> -->
+  </div>
+
+  <div class="codigo">
+    <!-- <mat-card >
+      <mat-card-content > -->
+      <div class="app-ace-editor" #editor></div>
+      <!-- </mat-card-content>
+    </mat-card> -->
+  </div>
+
+  <div *ngIf="resultado.compile" class="card-resultado">
+    <!-- <div *ngFor="let result of resultado.testes" >
+      <mat-card >
+        <mat-card-content>
+          <div class="row lista-resultado" *ngIf="result.exception == null">
+            <div class="col-md-1 d-flex  align-items-center">
+              <div >
+                <mat-icon *ngIf="result.resultadoFinal"  class="iconResultado accepted">check_circle_outline</mat-icon>
+                <mat-icon *ngIf="!result.resultadoFinal"  class="iconResultado" color = "warn" >error_outline</mat-icon>
+              </div>
+            </div>
+            <div class="col-md-5">
+              <p>Entrada</p>
+              <p>{{result.entrada.length>100 && ! result.isMore ? result.entrada.substring(0,50)+"...": result.entrada }}</p>
+                <a *ngIf=" result.entrada.length>100"(click)="result.isMore= !result.isMore">{{!result.isMore && result.entrada.length > 100 ? 'Ver Mais' : 'Ver Menos' }}</a>
+            </div>
+            <div class="col-md-3">
+              <p>Saida Obtida</p>
+              <p>{{result.saidaObtida}}</p>
+            </div>
+            <div class="col-md-3">
+              <p>Saida Esperada</p>
+              <p>{{result.saidaEsperada}}</p>
+            </div>
+          </div>
+          <div class="row" *ngIf="result.exception != null">
+            <div class="col-md-3">
+              <mat-icon *ngIf="result.resultadoFinal"  class="warn">error_outline</mat-icon>
+            </div>
+            <div class="col-md-9">
+              <p>{{result.exception}}</p>
+            </div>
+          </div>
+
+      </mat-card-content>
+      </mat-card>
+    </div> -->
+    <!-- align-items-center -->
+    <div *ngFor="let result of resultado.testes" class="div-resultado" (click)="detalhar(result)">
+        <mat-icon *ngIf="result.resultadoFinal"  class="accepted iconResultado2">check_circle_outline</mat-icon>
+        <mat-icon  *ngIf="!result.resultadoFinal && !result.runtimeException" class="iconResultado2" color = "warn">highlight_off</mat-icon>
+        <mat-icon  *ngIf="result.runtimeException" class="iconResultado2 exception">error_outline</mat-icon>
+        <label class="label-result">{{result.nome}}</label>
+    </div>
+  </div>
+
+  <div *ngIf="!resultado.compile">
+    <mat-card >
+      <mat-card-content>
+        <p>Erro de compilação: {{resultado.saidaObtida}}</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <div class="botao-wrapper center">
+    <button mat-button (click)="voltarTarefa()" class="botao" id="btn">Voltar Para a Tarefa</button>
+    <button mat-button (click)="voltarProva()" class="botao" id="btn" *ngIf="item!= null">Voltar Para a Prova</button>
+  </div>
+
+</div>

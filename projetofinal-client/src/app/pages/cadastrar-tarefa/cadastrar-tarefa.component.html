@@ -1,0 +1,95 @@
+<div class="container-fluid">
+  <div class="container">
+  <form  class="formulario" [formGroup]="formularioTarefa"  (ngSubmit)="cadastrarTarefa()" id="formTarefa">
+    <h2 class="titulo-form">Nova Tarefa</h2>
+
+
+      <p>
+          <mat-form-field class="example-full-width" appearance="outline" >
+            <mat-label>Titulo</mat-label>
+            <input matInput class="input-form" [(ngModel)]="tarefa.titulo" id="titulo" type="text"  name="titulo" formControlName="titulo" />
+          </mat-form-field>
+      </p>
+
+      <p>
+        <mat-form-field class="example-full-width" appearance="outline" >
+          <mat-label>Visibilidade</mat-label>
+          <mat-select  [(ngModel)]="tarefa.visibilidade" formControlName="visibilidade">
+            <mat-option *ngFor="let v of visibilidades" [value]="v.value">{{v.viewValue}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </p>
+
+      <p>
+          <mat-form-field class="example-full-width" appearance="outline" >
+            <mat-label>Descrição</mat-label>
+            <textarea matInput class="input-form" [(ngModel)]="tarefa.descricao" id="descricao" type="text"  name="descricao" rows="5" formControlName="descricao" ></textarea>
+            <span class="right">{{5000 - tarefa.descricao.length}}/5000</span>
+          </mat-form-field>
+
+      </p>
+
+
+    <div class="demo-button-container">
+      <button mat-button class="botao" id="btn" type="button" (click)="openDialog()" class="demo-button">
+        Adicionar Teste
+      </button>
+
+    </div>
+
+
+    <table mat-table [dataSource]="casosTestes" class="mat-elevation-z8">
+      <ng-container matColumnDef="nomeTeste">
+        <th mat-header-cell *matHeaderCellDef> Nome do Teste </th>
+        <td mat-cell *matCellDef="let teste">{{teste.nomeTeste}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="entrada" >
+        <th mat-header-cell *matHeaderCellDef> Entrada </th>
+        <td mat-cell *matCellDef="let teste" >{{teste.entrada}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="saida">
+        <th mat-header-cell *matHeaderCellDef> Saida </th>
+        <td mat-cell *matCellDef="let teste">{{teste.saida}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="comparacao">
+        <th mat-header-cell *matHeaderCellDef> Comparação </th>
+        <td mat-cell *matCellDef="let teste" >{{retornarTipoComparacao(teste.comparacao)}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="flagExibir">
+        <th mat-header-cell *matHeaderCellDef> Exibir para o aluno </th>
+        <td mat-cell *matCellDef="let teste"><mat-slide-toggle color="primary" (change)="alterarExibirParaAlunor(teste)" [checked]="teste.flagExibir"></mat-slide-toggle></td>
+      </ng-container>
+
+      <ng-container matColumnDef="acoes">
+        <th mat-header-cell *matHeaderCellDef> </th>
+        <td mat-cell *matCellDef="let teste">
+          <button mat-icon-button class="botao" type="button" color="primary"  (click)="editarCasoTeste(teste)">
+            <mat-icon class="icon">edit</mat-icon>
+          </button>
+          <button mat-icon-button class="botao" type="button" color="primary" (click)="excluirCasoTeste(teste)">
+            <mat-icon class="icon">delete</mat-icon>
+          </button>
+
+
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <span class="msg-erro center" *ngIf="casoTesteInvalido">
+      Insira pelo menos um caso de teste visível para o aluno.
+    </span>
+    <div class="botao-wrapper center">
+      <button mat-button class="botao" id="btn" type="submit" color="primary">Cadastrar</button>
+    </div>
+
+
+  </form>
+</div>
+</div>

@@ -1,0 +1,23 @@
+table{
+  width: 100%;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  white-space: pre-wrap;
+}
+
+.mat-column-select{
+  width: 32px;
+  border-right: 1px solid currentColor;
+  padding-right: 24px;
+  text-align: center;
+}
+
+.mat-column-titulo{
+  padding-left: 16px;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+

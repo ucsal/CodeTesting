@@ -1,0 +1,54 @@
+
+<div *ngIf="isProfessor() || isAdmin(); else aluno">
+  <mat-toolbar color="primary" >
+
+    <div *ngIf="isAdmin()">
+      <button mat-button [matMenuTriggerFor]="UsuarioMenu">Usuários</button>
+      <mat-menu #UsuarioMenu="matMenu" yPosition="below">
+        <button (click)="listarUsuarios()" mat-menu-item>Listar</button>
+        <button (click)="cadastrarUsuarios()" mat-menu-item>Cadastrar</button>
+      </mat-menu>
+    </div>
+
+    <button mat-button [matMenuTriggerFor]="provaMenu">Provas</button>
+    <mat-menu #provaMenu="matMenu" yPosition="below">
+      <button mat-menu-item (click)="listarProva()">Listar</button>
+      <button mat-menu-item (click)="cadastrarProva()">Cadastrar</button>
+    </mat-menu>
+
+    <button mat-button [matMenuTriggerFor]="tarefaMenu" >Tarefas</button>
+    <mat-menu #tarefaMenu="matMenu" yPosition="below">
+      <button (click)="listarTarefas()" mat-menu-item>Listar</button>
+      <button (click)="cadastrarTarefas()" mat-menu-item>Cadastrar</button>
+    </mat-menu>
+
+    <button mat-button (click)="listarSubmissoes()">Submissões</button>
+
+
+    <span class="example-spacer"></span>
+
+    <button mat-button [matMenuTriggerFor]="LoginMenu">{{usuarioLogado.nome}} </button>
+    <mat-menu #LoginMenu="matMenu" xPosition="before">
+      <button mat-menu-item>Perfil</button>
+      <button mat-menu-item (click)="sair()">Sair</button>
+    </mat-menu>
+  </mat-toolbar>
+</div>
+
+<!-- menu do aluno -->
+<ng-template #aluno>
+  <mat-toolbar color="primary" >
+    <button mat-button (click)="listarProva()">Provas</button>
+
+    <button mat-button (click)="listarTarefas()">Tarefas</button>
+
+    <button mat-button (click)="listarSubmissoes()">Submissões</button>
+    <span class="example-spacer"></span>
+
+    <button mat-button [matMenuTriggerFor]="LoginMenu">{{usuarioLogado.nome}} </button>
+    <mat-menu #LoginMenu="matMenu" xPosition="before">
+      <button mat-menu-item>Perfil</button>
+      <button mat-menu-item (click)="sair()">Sair</button>
+    </mat-menu>
+  </mat-toolbar>
+</ng-template>

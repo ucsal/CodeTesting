@@ -1,0 +1,26 @@
+.input-form {
+  width: 100%;
+}
+
+.formulario {
+  width: 100%;
+}
+
+.mat-form-field{
+  width: 100%;
+}
+
+.div-slide{
+  display: flex;
+  align-content: center;
+  align-items: center;
+  height: 60px;
+}
+
+.iconSenha{
+  cursor: pointer;
+}
+
+button{
+  margin: 15px 5px 5px;
+}

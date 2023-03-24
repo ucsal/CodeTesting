@@ -1,0 +1,31 @@
+<div class="container-fluid">
+    <div class="containerLogin">
+
+            <mat-card class="cardLogin ">
+              <form class="example-form" [formGroup]="formLogin" (ngSubmit)="login()">
+                <div>
+                  <div class="input-login">
+                      <mat-form-field class="example-full-width" appearance="outline">
+                          <mat-label>Login</mat-label>
+                          <mat-icon class="icon" matPrefix color = "primary">person</mat-icon>
+                          <input class="input-form" name="login" maxLength="14"  type="text" [(ngModel)]="usuario.login" formControlName="login" matInput >
+                      </mat-form-field>
+                  </div>
+                  <div class="input-login">
+                      <mat-form-field class="example-full-width" appearance="outline">
+                          <mat-label>Senha</mat-label>
+                          <mat-icon class="icon" matPrefix color = "primary">lock</mat-icon>
+                          <input class="input-form" name="senha" type="password" maxLength="70" [(ngModel)]="usuario.senha" formControlName="senha" matInput >
+                      </mat-form-field>
+                  </div>
+                </div>
+                <span class="msg-erro center" *ngIf="mensagemErro != ''">{{mensagemErro}}</span>
+              <button class="bot-login" mat-button>Login</button>
+
+
+              </form>
+              <button  mat-stroked-button color="primary" class="bot-cadastrar" (click)="cadastrar()">Cadastrar</button>
+            </mat-card>
+
+    </div>
+</div>
