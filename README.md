@@ -1,6 +1,6 @@
 # Projeto Final Joaldo e Yla
 
-O projeto é uma plataforma gameficada para estudo de lógica de programação. O projeto está dividido em dois módulos: `projetoFinal_api` e `projetoFinal_client`
+O projeto é uma plataforma gameficada para estudo de lógica de programação. O projeto está dividido em três módulos: `projetoFinal_api`, `projetoFinal_client` e `projetoFinal_mobile`
 
 ## projetoFinal_api 
 
